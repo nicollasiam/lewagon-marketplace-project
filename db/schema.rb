@@ -10,16 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807194428) do
+ActiveRecord::Schema.define(version: 20170807201718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bought_videos", force: :cascade do |t|
+    t.integer  "video_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bought_videos_on_user_id", using: :btree
+    t.index ["video_id"], name: "index_bought_videos_on_video_id", using: :btree
+  end
+
+  create_table "cart_videos", force: :cascade do |t|
+    t.integer  "video_id"
+    t.integer  "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_cart_videos_on_cart_id", using: :btree
+    t.index ["video_id"], name: "index_cart_videos_on_video_id", using: :btree
+  end
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_carts_on_user_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,6 +63,15 @@ ActiveRecord::Schema.define(version: 20170807194428) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "video_tags", force: :cascade do |t|
+    t.integer  "video_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_video_tags_on_tag_id", using: :btree
+    t.index ["video_id"], name: "index_video_tags_on_video_id", using: :btree
+  end
+
   create_table "videos", force: :cascade do |t|
     t.string   "file"
     t.float    "frame_rate"
@@ -50,9 +83,16 @@ ActiveRecord::Schema.define(version: 20170807194428) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "address"
     t.index ["user_id"], name: "index_videos_on_user_id", using: :btree
   end
 
+  add_foreign_key "bought_videos", "users"
+  add_foreign_key "bought_videos", "videos"
+  add_foreign_key "cart_videos", "carts"
+  add_foreign_key "cart_videos", "videos"
   add_foreign_key "carts", "users"
+  add_foreign_key "video_tags", "tags"
+  add_foreign_key "video_tags", "videos"
   add_foreign_key "videos", "users"
 end
