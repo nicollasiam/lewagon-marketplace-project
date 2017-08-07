@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-  get 'videos/index'
+  resources :carts, only: :index
 
-  get 'videos/edit'
+  resources :videos, only: [:index, :show]
 
-  get 'videos/show'
-
-  get 'videos/new'
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
