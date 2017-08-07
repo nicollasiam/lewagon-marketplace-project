@@ -1,4 +1,6 @@
 class Video < ApplicationRecord
   belongs_to :user
-  has_many :bought_videos, :cart_videos, :video_tags
+  has_many :bought_videos
+  has_many :cart_videos 
+  has_many :video_tags
 end
