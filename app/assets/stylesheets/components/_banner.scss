@@ -1,0 +1,17 @@
+.banner {
+  background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url('https://lorempixel.com/1800/500/nightlife');
+  background-position: center;
+  height: 500px;
+  color: white;
+  text-shadow: 2px 2px black;
+
+  h1 {
+    font-size: 4em;
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+
+  p {
+    font-size: 1.5em;
+  }
+}

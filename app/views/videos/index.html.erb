@@ -1,3 +1,21 @@
-<% @videos.each do |video| %>
-    <%= cl_video_tag(video.file.file.public_id,:loop => true, :controls => true, :autoplay => true, :width=>500, :crop=>"scale", style: "border-radius: 20px;") %>
-  <% end %>
+<div class="banner">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h1>Create, sell and buy awesome videos</h1>
+        <p>In VOYC, you can find great videos for whatever you need!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @videos.each do |video| %>
+      <div class="col-xs-4">
+        <%= cl_video_tag(video.file.file.public_id, loop: true, controls: true, height: 300, crop: 'scale', style: "border-radius: 20px;") %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

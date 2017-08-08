@@ -14,10 +14,15 @@
     <%= load_navbar %>
 
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-
-      <%= yield %>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+      </div>
     </div>
+
+    <%= yield %>
+
   </body>
 </html>
