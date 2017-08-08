@@ -1,2 +1,3 @@
-<h1>Admin::Videos#index</h1>
-<p>Find me in app/views/admin/videos/index.html.erb</p>
+<% @videos.each do |video| %>
+    <%= cl_video_tag(video.file.file.public_id,:loop => true, :controls => true, :autoplay => true, :width=>500, :crop=>"scale", style: "border-radius: 20px;") %>
+  <% end %>
