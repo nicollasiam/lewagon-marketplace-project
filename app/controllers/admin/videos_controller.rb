@@ -1,9 +1,8 @@
 class Admin::VideosController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_video, only: [:show, :edit, :update, :destroy]
 
   def index
-    @videos = Video.all.where(user: user)
+    @videos = Video.all.where(user: current_user)
   end
 
   def show
@@ -42,7 +41,8 @@ class Admin::VideosController < ApplicationController
   private
 
   def find_video
-    @video = Video.find(params[:id])
+    @videos = Video.all.where(user: current_user)
+    @video = @videos.find(params[:id])
   end
 
   def video_params
