@@ -1,8 +1,6 @@
 class VideosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-
-
   def index
     @videos = Video.all
   end
@@ -22,7 +20,8 @@ class VideosController < ApplicationController
   end
 
   def create
-     @video = Video.create(post_params)
+    @video = Video.create(video_params)
+    current_user.videos << @video
   end
 
   def destroy
@@ -34,7 +33,7 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
   end
 
-  def post_params
-    params.require(:video).permit(:file)
+  def video_params
+    params.require(:video).permit(:file, :file_cache, :user)
   end
 end
