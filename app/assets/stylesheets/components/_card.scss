@@ -1,0 +1,45 @@
+video {
+  border-radius: 5px;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* video container */
+.video-show {
+  .card {
+    padding: 30px 0;
+  }
+}
+.card {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  color: #ccc;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.8);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  margin: 20px 0;
+
+  a {
+    display: none;
+    position: absolute;
+    top: 20%;
+    margin-left: 40%;
+
+    i {
+      font-size: 72px;
+      color: rgba(50,50,50,.5);
+
+      &:hover {
+        color: rgba(50,50,50,.8);
+      }
+    }
+  }
+
+  &:hover {
+    a {
+      display: inline-block;
+    }
+  }
+}

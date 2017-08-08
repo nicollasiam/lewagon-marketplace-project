@@ -2,5 +2,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// Font Awesome imports
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 // Our CSS libraries
 @import "components/index";
+
+.flexbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

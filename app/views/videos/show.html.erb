@@ -1,1 +1,48 @@
-<%= cl_video_tag(@video.file.file.public_id,:loop => true, :controls => true, :autoplay => true, :width=>500, :crop=>"scale", style: "border-radius: 20px;") %>
+<div class="video-show">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="card text-center">
+          <%= cl_video_tag(@video.file.file.public_id, loop: true, autoplay: true) %>
+
+          <div class="control">
+            <div class="btn-controls">
+              <!-- Play/Pause button -->
+              <div class="btn-play btn" title="Play/Pause video"><span class="icon-play"></span></div>
+
+              <!-- ProgressBar -->
+              <div class="progress-bar">
+                <div class="progress">
+                  <span class="bufferBar"></span>
+                  <span class="timeBar"></span>
+                </div>
+              </div>
+
+              <!-- Sound Control -->
+              <div class="sound sound2 btn" title="Mute/Unmute sound"><span class="icon-sound"></span></div>
+
+              <!-- Full Screen btn -->
+              <div class="btnFS btn" title="Switch to full screen"><span class="icon-fullscreen"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="buy-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-offset-5 col-xs-2">
+        <%= link_to carts_path do %>
+          <div class="add-cart-lg flexbox">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
