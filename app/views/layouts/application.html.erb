@@ -10,11 +10,13 @@
 
   <body>
 
+
     <% if user_signed_in? %>
       <%= render 'shared/navbar-loggedin' %>
     <% else %>
       <%= render 'shared/navbar-loggedout' %>
     <% end %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
