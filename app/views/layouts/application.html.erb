@@ -9,10 +9,20 @@
   </head>
 
   <body>
-    <!-- <%= render 'shared/navbar' %> -->
+
+    <% if user_signed_in? %>
+      <%= render 'shared/navbar-loggedin' %>
+    <% else %>
+      <%= render 'shared/navbar-loggedout' %>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
