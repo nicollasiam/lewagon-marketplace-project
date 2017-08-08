@@ -1,2 +1,10 @@
 @import "header";
 @import "banner";
+@import "card";
+@import "video-controls";
+
+.videos h1 {
+  font-size: 4em;
+  color: black;
+  margin-bottom: 25px;
+}

@@ -9,13 +9,44 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <% @videos.each do |video| %>
-      <div class="col-xs-4">
-        <%= cl_video_tag(video.file.file.public_id, loop: true, controls: true, height: 300, crop: 'scale', style: "border-radius: 20px;") %>
-      </div>
-    <% end %>
+<div class="videos">
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center">Newest Videos</h1>
+      <% @videos.each do |video| %>
+        <div class="col-xs-4">
+          <div class="card">
+            <%= cl_video_tag(video.file.file.public_id) %>
+
+            <!-- Go to details -->
+            <%= link_to video_path(video) do %>
+              <i class="fa fa-arrow-circle-right" aria-hidden="true""></i>
+            <% end %>
+
+            <div class="control">
+              <div class="btn-controls">
+                <!-- Play/Pause button -->
+                <div class="btn-play btn" title="Play/Pause video"><span class="icon-play"></span></div>
+
+                <!-- ProgressBar -->
+                <div class="progress-bar">
+                  <div class="progress">
+                    <span class="bufferBar"></span>
+                    <span class="timeBar"></span>
+                  </div>
+                </div>
+
+                <!-- Sound Control -->
+                <div class="sound sound2 btn" title="Mute/Unmute sound"><span class="icon-sound"></span></div>
+
+                <!-- Full Screen btn -->
+                <div class="btnFS btn" title="Switch to full screen"><span class="icon-fullscreen"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
