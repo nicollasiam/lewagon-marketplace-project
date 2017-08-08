@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-  // Fade In controls
-  $('.control').fadeIn(500);
-
   $('video').each(function(index, video) {
     video.removeAttribute('controls');
 

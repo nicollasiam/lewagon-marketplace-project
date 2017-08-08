@@ -8,3 +8,9 @@
 
 // Our CSS libraries
 @import "components/index";
+
+.flexbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
