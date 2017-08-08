@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# 
+# 3.times do
+#   User.create(email: Faker::Internet.email, password: 123456)
+# end
+#
+# 10.times do
+#   a = Video.create(file: /media/sf_VM_Shared/video.mp4 )
+#   User.find(1).videos << a
+# end

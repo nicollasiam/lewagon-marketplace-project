@@ -4,6 +4,14 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+#Generate fakes infos
+gem 'faker'
+# Cloudinary
+gem 'cloudinary'
+# Key security
+gem 'figaro'
+# Video
+gem 'carrierwave', '~> 0.11.2'
 # Need to install ffmeg - read metadata from a video file
 # On macOS: brew install ffmpeg.
 # On linux: sudo apt-get install ffmpeg
