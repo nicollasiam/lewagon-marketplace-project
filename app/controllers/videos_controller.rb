@@ -6,35 +6,6 @@ class VideosController < ApplicationController
   end
 
   def show
-
-  end
-
-  def edit
-  end
-
-  def new
-    @video = Video.new
-  end
-
-  def update
-  end
-
-  def create
-    @video = Video.create(video_params)
-    @video.user = current_user
-    @video.save
-  end
-
-  def destroy
-  end
-
-  private
-
-  def find_video
     @video = Video.find(params[:id])
-  end
-
-  def video_params
-    params.require(:video).permit(:file, :file_cache, :user)
   end
 end
