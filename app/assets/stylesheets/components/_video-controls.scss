@@ -1,31 +1,29 @@
-// .progressBar {
-//    border: 1px solid #aaa;
-//    color: white;
-//    width: 295px;
-//    height: 20px;
-
-//   .progress {
-//      background-color: red;
-//      height: 20px;
-//      display: inline-block;
-//   }
-// }
-
 
 /* control holder */
 .control {
-  color:#ccc;
-  position:absolute;
-  bottom:10px;
-  left:10px;
-  width:360px;
-  z-index:5;
-  display:none;
+    color: #ccc;
+    position: absolute;
+    left: 10px;
+    z-index: 5;
+    display: none;
+  }
+
+.videos {
+  .control {
+    left: 10px;
+    bottom: 10px;
+  }
 }
 
+.video-show {
+  .control {
+    left: 33%;
+    bottom: 40px;
+  }
+}
 /* control bottom part */
 .btn-controls {
-  clear:both;
+  clear: both;
 
   .btn {
     padding: 0;
@@ -33,10 +31,10 @@
 }
 
 .control .btn-play {
-  float:left;
-  width:34px;
-  height:30px;
-  padding:5px;
+  float: left;
+  width: 34px;
+  height: 30px;
+  padding: 5px;
   background: rgba(0,0,0,0.5);
   cursor:pointer;
   border-radius: 6px 0 0 6px;
@@ -60,10 +58,6 @@
   margin: 4px 0 0 8px;
 }
 
-
-
-
-
 /* Progress bar */
 .progress-bar {
   height: 30px;
@@ -72,17 +66,29 @@
   border: 1px solid rgba(0,0,0,0.7);
   border-left: none;
   box-shadow: inset 0 0 1px rgba(255,255,255,0.5);
-  float:left;
+  float: left;
   width: auto;
 }
 .progress {
-  width:225px;
-  height:7px;
-  position:relative;
-  cursor:pointer;
+  width: 225px;
+  height: 7px;
+  position: relative;
+  cursor: pointer;
   background: rgba(0,0,0,0.4); /* fallback */
   box-shadow: 0 1px 0 rgba(255,255,255,0.1), inset 0 1px 1px rgba(0,0,0,1);
-  border-radius:10px;
+  border-radius: 10px;
+}
+
+.videos {
+  .progress {
+    width: 225px;
+  }
+}
+
+.video-show {
+  .progress {
+    width: 505px;
+  }
 }
 .progress span {
   height:100%;
@@ -145,3 +151,4 @@
   display: block;
   margin: 8px 0 0 9px;
 }
+
