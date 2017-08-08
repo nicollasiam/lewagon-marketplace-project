@@ -1,2 +1,1 @@
-<h1>Admin::Videos#show</h1>
-<p>Find me in app/views/admin/videos/show.html.erb</p>
+<%= cl_video_tag(@video.file.file.public_id,:loop => true, :controls => true, :autoplay => true, :width=>500, :crop=>"scale", style: "border-radius: 20px;") %>
