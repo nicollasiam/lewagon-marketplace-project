@@ -21,7 +21,8 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.create(video_params)
-    current_user.videos << @video
+    @video.user = current_user
+    @video.save
   end
 
   def destroy
