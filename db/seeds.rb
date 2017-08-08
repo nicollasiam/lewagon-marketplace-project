@@ -15,7 +15,7 @@ end
 user = User.first
 
 5.times do
-  a = Video.create!(file: File.open("/media/sf_VM_Shared/video.mp4"), user: user)
+  a = Video.create!(file: File.open("/home/bruno/code/marketplace-project/video.mp4"), user: user)
 end
 
 get = User.all
@@ -23,5 +23,5 @@ get = User.all
 all = get[1..-1]
 
 5.times do
-  a = Video.create!(file: File.open("/media/sf_VM_Shared/quantum-computer-qubit-technology_n1ri6_eje__PM.mp4"), user: all.sample)
+  a = Video.create!(file: File.open("/home/bruno/code/marketplace-project/quantum-computer-qubit-technology_n1ri6_eje__PM.mp4"), user: all.sample)
 end
