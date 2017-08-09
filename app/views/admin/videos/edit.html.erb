@@ -1,2 +1,12 @@
-<h1>Admin::Videos#edit</h1>
-<p>Find me in app/views/admin/videos/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+
+      <%= simple_form_for ([:admin, @video]) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :location %>
+        <%= f.submit  %>
+      <% end %>
+    </div>
+  </div>
+</div>
