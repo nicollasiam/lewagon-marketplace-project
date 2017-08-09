@@ -4,6 +4,8 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+# Geocoder
+gem 'geocoder'
 # Facebook connection
 gem 'omniauth-facebook'
 #Generate fakes infos
