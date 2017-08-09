@@ -8,6 +8,7 @@ class Admin::VideosController < ApplicationController
   end
 
   def show
+    @video_coordinates = { lat: @video.latitude, lng: @video.longitude }
   end
 
   def edit

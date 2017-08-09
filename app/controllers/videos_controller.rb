@@ -7,5 +7,6 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @video_coordinates = { lat: @video.latitude, lng: @video.longitude }
   end
 end
