@@ -1,3 +1,23 @@
-<% @videos.each do |video| %>
-    <%= cl_video_tag(video.file.file.public_id,:loop => true, :controls => true, :autoplay => true, :width=>500, :crop=>"scale", style: "border-radius: 20px;") %>
-  <% end %>
+<div class="videos">
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center"><%= current_user.email %>`s Videos</h1>
+      <% @videos.each do |video| %>
+        <div class="col-xs-4">
+          <div class="card-index">
+            <%= cl_video_tag(video.file.file.public_id) %>
+
+            <!-- Go to details -->
+            <%= link_to admin_video_path(video) do %>
+              <i class="fa fa-arrow-circle-right" aria-hidden="true""></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
