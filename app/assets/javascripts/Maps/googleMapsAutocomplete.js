@@ -17,8 +17,6 @@ function onPlaceChanged() {
   var place = this.getPlace();
   var components = getAddressComponents(place);
 
-  console.log(components);
-
   $('#video_location').on('blur', function() {
     $(this).val(components.address);
   });
