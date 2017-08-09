@@ -1,5 +1,7 @@
 class Admin::VideosController < ApplicationController
   before_action :find_video, only: [:show, :edit, :update, :destroy]
+  geocoded_by :location
+  after_validation :location, if: :address_changed?
 
   def index
     @videos = Video.all.where(user: current_user)
@@ -25,8 +27,8 @@ class Admin::VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
-    movie = FFMPEG::Movie.new(params[:video][:file].tempfile.path)
-    @video.width = movie.width
+    # movie = FFMPEG::Movie.new(params[:video][:file].tempfile.path)
+    # @video.width = movie.width
     @video.user = current_user
     if @video.save
       redirect_to admin_video_path(@video)
@@ -48,6 +50,6 @@ class Admin::VideosController < ApplicationController
   end
 
   def video_params
-    params.require(:video).permit(:file, :file_cache, :user, :name, :location, :latitude, :longitude)
+    params.require(:video).permit(:file, :file_cache, :user, :name, :location)
   end
 end
