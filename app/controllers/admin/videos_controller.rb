@@ -37,8 +37,12 @@ class Admin::VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
-    # movie = FFMPEG::Movie.new(params[:video][:file].tempfile.path)
-    # @video.width = movie.width
+    movie = FFMPEG::Movie.new(params[:video][:file].tempfile.path)
+    @video.width = movie.width
+    @video.height = movie.height
+    @video.frame_rate = movie.frame_rate
+    @video.enconding = movie.video_codec
+    @video.length = movie.duration
     @video.user = current_user
     if @video.save
       redirect_to admin_video_path(@video)
