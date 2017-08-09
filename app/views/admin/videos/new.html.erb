@@ -1,4 +1,4 @@
-<%= simple_form_for @video do |f| %>
+<%= simple_form_for ([:admin, @video]) do |f| %>
   <%= f.input :name %>
   <%= f.input :file %>
   <%= f.input :file_cache, as: :hidden %>
