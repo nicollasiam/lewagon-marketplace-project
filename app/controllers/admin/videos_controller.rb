@@ -1,6 +1,6 @@
 class Admin::VideosController < ApplicationController
   before_action :find_video, only: [:show, :edit, :update, :destroy]
-  
+
 
   def index
     @videos = Video.all.where(user: current_user)
@@ -9,10 +9,14 @@ class Admin::VideosController < ApplicationController
   def show
     @video_coordinates = { lat: @video.latitude, lng: @video.longitude }
 
-    @hash = Gmaps4rails.build_markers(@video) do |video, marker|
-      marker.lat video.latitude
-      marker.lng video.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    if @video.latitude.nil? && @video.longitude.nil?
+      @hash = {}
+    else
+      @hash = Gmaps4rails.build_markers(@video) do |video, marker|
+        marker.lat video.latitude
+        marker.lng video.longitude
+        # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      end
     end
   end
 
