@@ -4,4 +4,6 @@ class Video < ApplicationRecord
   has_many :cart_videos
   has_many :video_tags
   mount_uploader :file, VideoUploader
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
 end

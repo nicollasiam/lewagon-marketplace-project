@@ -4,6 +4,13 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+# Gems to make the map dynamic
+gem "gmaps4rails"
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+# Geocoder
+gem 'geocoder'
 # Facebook connection
 gem 'omniauth-facebook'
 #Generate fakes infos

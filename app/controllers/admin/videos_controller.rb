@@ -1,11 +1,19 @@
 class Admin::VideosController < ApplicationController
   before_action :find_video, only: [:show, :edit, :update, :destroy]
+  
 
   def index
     @videos = Video.all.where(user: current_user)
   end
 
   def show
+    @video_coordinates = { lat: @video.latitude, lng: @video.longitude }
+
+    @hash = Gmaps4rails.build_markers(@video) do |video, marker|
+      marker.lat video.latitude
+      marker.lng video.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def edit
@@ -25,8 +33,8 @@ class Admin::VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
-    movie = FFMPEG::Movie.new(params[:video][:file].tempfile.path)
-    @video.width = movie.width
+    # movie = FFMPEG::Movie.new(params[:video][:file].tempfile.path)
+    # @video.width = movie.width
     @video.user = current_user
     if @video.save
       redirect_to admin_video_path(@video)
@@ -48,6 +56,6 @@ class Admin::VideosController < ApplicationController
   end
 
   def video_params
-    params.require(:video).permit(:file, :file_cache, :user, :name, :location, :latitude, :longitude)
+    params.require(:video).permit(:file, :file_cache, :user, :name, :location)
   end
 end
