@@ -10,7 +10,8 @@ video {
     padding: 30px 0;
   }
 }
-.card {
+
+.card, .card-index {
   height: 100%;
   position: relative;
   overflow: hidden;
@@ -38,8 +39,18 @@ video {
   }
 
   &:hover {
+
     a {
       display: inline-block;
     }
+  }
+}
+
+.card-index {
+  transition: transform .5s ease;
+
+  &:hover {
+    transform: scale(1.5);
+    z-index: 10;
   }
 }
