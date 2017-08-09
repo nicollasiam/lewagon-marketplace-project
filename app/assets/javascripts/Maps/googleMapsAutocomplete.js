@@ -3,6 +3,7 @@ $(document).ready(function() {
 
   if (video_location) {
     var autocomplete = new google.maps.places.Autocomplete(video_location, { types: ['geocode'] });
+
     google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
     google.maps.event.addDomListener(video_location, 'keydown', function(e) {
       if (e.keyCode == 13) {
@@ -16,12 +17,13 @@ function onPlaceChanged() {
   var place = this.getPlace();
   var components = getAddressComponents(place);
 
-  $('#video_location').trigger('blur').val(components.address);
-  $('#flat_zip_code').val(components.zip_code);
-  $('#flat_city').val(components.city);
-  if (components.country_code) {
-    $('#flat_country').val(components.country_code);
-  }
+  console.log(components);
+
+  $('#video_location').on('blur', function() {
+    $(this).val(components.address);
+  });
+
+  // $('#video_location').trigger('blur').val(components.address);
 }
 
 function getAddressComponents(place) {
