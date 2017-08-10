@@ -9,7 +9,17 @@
 
             <!-- Go to details -->
             <%= link_to admin_video_path(video) do %>
-              <i class="fa fa-arrow-circle-right" aria-hidden="true""></i>
+              <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+            <% end %>
+          </div>
+          <div class="text-center col-xs-1  col-xs-offset-3">
+            <%= link_to edit_admin_video_path(video) do %>
+              <i class="fa fa-pencil fa-2x"></i>
+            <% end %>
+          </div>
+          <div class="text-center col-xs-1 col-xs-offset-3">
+            <%= link_to admin_video_path(video), method: 'delete' do %>
+              <i class="fa fa-trash fa-2x"></i>
             <% end %>
           </div>
         </div>
