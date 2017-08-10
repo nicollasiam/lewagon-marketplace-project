@@ -8,7 +8,6 @@ class UserMailer < ApplicationMailer
 
   def buy(user)
     @user = user
-
-    mail to: user.email
+    mail to: user.email, subject: 'VOYC shop'
   end
 end

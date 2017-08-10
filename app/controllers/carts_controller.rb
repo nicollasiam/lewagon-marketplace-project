@@ -20,4 +20,12 @@ class CartsController < ApplicationController
     # raise
     redirect_to carts_path
   end
+
+  def buy
+    # Apenas o metodo foi criado para configurar o e-mail
+    # Falta criar a rota(routes.rb)
+    # E atribuir ela ao botao de compra
+
+    UserMailer.buy(current_user).deliver_now
+  end
 end
