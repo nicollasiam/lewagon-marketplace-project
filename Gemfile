@@ -63,6 +63,9 @@ gem 'simple_form'
 # Dont want to worry with cross browser css
 gem 'autoprefixer-rails'
 
+# Gem for drag 'n drop purposes
+gem 'sortable-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'

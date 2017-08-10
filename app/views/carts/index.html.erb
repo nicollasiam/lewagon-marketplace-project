@@ -1,9 +1,14 @@
+
+
+
+
+
+
 <h1>Carts#index</h1>
 <p>Find me in app/views/carts/index.html.erb</p>
 <h1><%= @user.email %></h1>
 
 <% @user.cart_videos.each do |cart_video| %>
-  <%# raise %>
   <%= cart_video.video.file %>
   <br>
 <% end %>
