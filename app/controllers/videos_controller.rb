@@ -19,5 +19,10 @@ class VideosController < ApplicationController
         # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
       end
     end
+
+    if current_user && current_user.cart
+      user_videos = current_user.cart.cart_videos.all
+      user_videos.where(video_id: @video.id).length == 0 ? @is_video_in_cart = false : @is_video_in_cart = true
+    end
   end
 end
