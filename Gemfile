@@ -4,6 +4,8 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+# Fake mail for development
+gem "letter_opener", group: :development
 # Gems to make the map dynamic
 gem "gmaps4rails"
 source 'https://rails-assets.org' do
