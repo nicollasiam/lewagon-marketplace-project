@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :cart_videos, through: :cart
   has_many :videos, dependent: :destroy
   has_many :bought_videos, dependent: :destroy
+  after_create :send_welcome_email
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -29,5 +30,11 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
   end
 end
