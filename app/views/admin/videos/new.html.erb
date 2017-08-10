@@ -5,9 +5,10 @@
       <%= simple_form_for ([:admin, @video]) do |f| %>
         <%= f.input :name %>
         <%= f.input :location %>
+        <%= f.input :price %>
         <%= f.input :file %>
         <%= f.input :file_cache, as: :hidden %>
-        <%= f.submit  %>
+        <%= f.submit 'Upload Video', class: 'btn btn-primary btn-lg' %>
       <% end %>
     </div>
   </div>

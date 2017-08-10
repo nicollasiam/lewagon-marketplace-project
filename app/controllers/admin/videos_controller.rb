@@ -64,6 +64,6 @@ class Admin::VideosController < ApplicationController
   end
 
   def video_params
-    params.require(:video).permit(:file, :file_cache, :user, :name, :location)
+    params.require(:video).permit(:file, :file_cache, :user, :name, :location, :price)
   end
 end
