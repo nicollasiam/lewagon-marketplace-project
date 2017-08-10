@@ -35,12 +35,12 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-offset-5 col-xs-2">
-        <%= link_to carts_path do %>
-          <div class="add-cart-lg flexbox">
-          <i class="fa fa-plus" aria-hidden="true"></i>
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          </div>
+        <% unless @video.user == current_user %>
+          <%= simple_form_for(@video) do |f| %>
+            <%= f.submit 'Buy', class: 'btn btn-primary btn-lg' %>
+          <% end %>
         <% end %>
+        <h1><%= @video.user.email %></h1>
       </div>
     </div>
   </div>
