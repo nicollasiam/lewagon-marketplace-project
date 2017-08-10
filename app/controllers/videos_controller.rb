@@ -8,6 +8,7 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     @video_coordinates = { lat: @video.latitude, lng: @video.longitude }
+    @user = current_user
 
     if @video.latitude.nil? && @video.longitude.nil?
       @hash = {}
