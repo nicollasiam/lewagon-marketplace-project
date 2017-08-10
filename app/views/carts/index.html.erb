@@ -1,14 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-4">
+      <div class="buy-videos-wrapper">
+        <div id="choosenVideos" class="list-group">
+          <div class="holder"></div>
+          <% @user.cart_videos.each do |cart_video| %>
+          <%# raise %>
+            <div class="list-group-item">
+              <div class="col-xs-4">
+                <%= cl_video_tag(cart_video.video.file.file.public_id) %>
+              </div>
 
+              <div class="col-xs-6 text-left">
+                <%= cart_video.video.name %>
+              </div>
 
+              <div class="col-xs-2 text-right">
+                <%= cart_video.video.price %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-
-
-
-<h1>Carts#index</h1>
-<p>Find me in app/views/carts/index.html.erb</p>
-<h1><%= @user.email %></h1>
-
-<% @user.cart_videos.each do |cart_video| %>
-  <%= cart_video.video.file %>
-  <br>
-<% end %>
+    <div class="col-xs-4">
+      <div class="buy-videos-wrapper">
+        <div id="buyVideos">
+          <div class="holder"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

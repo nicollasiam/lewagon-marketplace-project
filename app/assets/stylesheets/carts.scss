@@ -1,3 +1,22 @@
-// Place all the styles related to the Carts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.list-group-item {
+  cursor: move;
+  cursor: -webkit-grabbing;
+  overflow: hidden;
+}
+
+.ghost {
+  background-color: #ff6666;
+  opacity: .4;
+}
+
+.holder {
+  min-height: 1px;
+  padding: 0;
+  border: 0;
+  cursor: arrow;
+}
+
+.buy-videos-wrapper {
+  background-color: #ff6666;
+  padding: 20px;
+}
