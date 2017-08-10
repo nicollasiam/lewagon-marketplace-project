@@ -15,4 +15,5 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
+//= require sortable-rails
 //= require_tree .
