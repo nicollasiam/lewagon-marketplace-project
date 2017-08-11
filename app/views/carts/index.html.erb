@@ -53,14 +53,9 @@
 </div>
 
 <div class="text-center">
-  <%= link_to carts_path, method: "patch" do %>
-  <i  style='font-size: 1.8em;vertical-align: middle' class="fa fa-credit-card-alt btn-rounded btn-purple" aria-hidden="true"></i>
+  <%= button_to carts_path, method: "patch", class: "btn-purple btn-rounded" do %>
+    <i  style='font-size: 1.8em;' class="fa fa-shopping-cart " aria-hidden="true"></i>
   <% end %>
-</div>
-
-<div class="">
-  <br>
-  <br>
 </div>
 
 
