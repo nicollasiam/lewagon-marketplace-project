@@ -28,4 +28,11 @@ class CartsController < ApplicationController
 
     UserMailer.buy(current_user).deliver_now
   end
+
+
+  def destroy
+    cart = current_user.cart
+    cart.cart_videos.where(video_id: params[:id]).last.destroy
+    redirect_to carts_path
+  end
 end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :videos
   end
 
-  resources :carts, only: :index
+  resources :carts, only: [:index, :destroy]
 
   resources :videos, only: [:index, :show]
 

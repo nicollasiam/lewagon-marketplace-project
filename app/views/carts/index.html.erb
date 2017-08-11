@@ -15,6 +15,12 @@
                 <%= cart_video.video.name %>
               </div>
 
+              <div class="col-xs-6 text-right">
+                <%= link_to cart_path(cart_video.video), method: 'delete' do %>
+                  <i class="fa fa-trash fa-2x"></i>
+                <% end %>
+              </div>
+
               <div class="col-xs-2 text-right">
                 <%= cart_video.video.price %>
               </div>
