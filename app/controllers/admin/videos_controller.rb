@@ -37,7 +37,6 @@ class Admin::VideosController < ApplicationController
   end
 
   def create
-    # raise
     @video = Video.new(video_params)
     movie = FFMPEG::Movie.new(params[:video][:file].tempfile.path)
     @video.width = movie.width
@@ -67,6 +66,11 @@ class Admin::VideosController < ApplicationController
   def destroy
     @video.destroy
     redirect_to admin_videos_path
+  end
+
+  def bought
+    @user = current_user
+    @videos = @user.bought_videos
   end
 
   private
