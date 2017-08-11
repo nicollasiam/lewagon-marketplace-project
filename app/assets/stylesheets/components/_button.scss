@@ -31,3 +31,20 @@
 .margin-button {
   margin: 15px 0;
 }
+
+.btn-purple {
+  background: #CF32FF;
+  color: white;
+}
+
+.btn-purple:hover {
+  opacity: .7;
+}
+
+.btn-rounded {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: 0;
+  box-shadow: 1px 1px 5px black;
+}

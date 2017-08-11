@@ -16,14 +16,7 @@ video {
 }
 
 .card, .card-index {
-  height: 100%;
   position: relative;
-  overflow: hidden;
-  background: #000;
-  color: #ccc;
-  border-radius: 5px;
-  border: 1px solid rgba(0,0,0,0.8);
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
   margin: 20px 0;
 
   a {
@@ -51,10 +44,10 @@ video {
 }
 
 .card-index {
-  transition: transform .5s ease;
+  transition: translate .5s ease;
 
   &:hover {
-    transform: scale(1.5);
+    transform: translate(0, -10px);
     z-index: 10;
   }
 }
