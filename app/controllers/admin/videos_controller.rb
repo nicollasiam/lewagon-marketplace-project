@@ -8,6 +8,7 @@ class Admin::VideosController < ApplicationController
 
   def show
     @video_coordinates = { lat: @video.latitude, lng: @video.longitude }
+    @tags = Tag.joins(:video_tags).where(video_tags: { video: @video })
 
     if @video.latitude.nil? && @video.longitude.nil?
       @hash = {}
