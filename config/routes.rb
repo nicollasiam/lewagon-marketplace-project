@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   root to: "videos#index"
 
   patch 'videos/:id', to: 'carts#add'
+
+  patch 'carts', to: 'carts#buy'
 end

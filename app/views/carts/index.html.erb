@@ -54,6 +54,13 @@
 </div>
 
 
+<div class="text-center">
+  <%= link_to carts_path, method: "patch" do %>
+  <i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i>
+  <% end %>
+</div>
+
+
 <%= content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
