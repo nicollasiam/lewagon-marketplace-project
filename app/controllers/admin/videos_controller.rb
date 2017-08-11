@@ -23,16 +23,17 @@ class Admin::VideosController < ApplicationController
   def edit
   end
 
-  def new
-    @video = Video.new
-  end
-
   def update
     if @video.update(video_params)
       redirect_to admin_video_path(@video)
     else
       render :edit
     end
+  end
+
+  def new
+    @video = Video.new
+    @tags = Tag.all
   end
 
   def create
@@ -44,6 +45,13 @@ class Admin::VideosController < ApplicationController
     @video.enconding = movie.video_codec
     @video.length = movie.duration
     @video.user = current_user
+
+    new_video_tag = VideoTag.new
+    tag = Tag.find(params[:video][:video_tags])
+    new_video_tag.video = @video
+    new_video_tag.tag = tag
+    new_video_tag.save!
+
     if @video.save
       redirect_to admin_video_path(@video)
     else

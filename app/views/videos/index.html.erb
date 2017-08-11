@@ -6,6 +6,30 @@
         <p>In VOYC, you can find great videos for whatever you need!</p>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-xs-offset-3 col-xs-6">
+        <form action="/videos" method="GET">
+          <div class="input-group input-group-lg">
+
+            <span id="magnifier-icon" class="input-group-addon" id="sizing-addon1"><i class="fa fa-search"></i></span>
+            <input id="search-box" type="text" class="form-control" placeholder="Search" aria-describedby="sizing-addon1" name="word">
+
+
+            <div class="input-group-btn">
+              <select name="category" class="btn btn-default dropdown-toggle selectpicker" aria-haspopup="true" aria-expanded="false">
+                <option selected>All</option>
+                <% @categories.each_with_index do |category, index| %>
+                  <option value="<%= category.id %>"><%= category.name %></option>
+                <% end %>
+              </select>
+
+              <button class="btn btn-default" type="submit">Go!</button>
+            </div><!-- /btn-group -->
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 

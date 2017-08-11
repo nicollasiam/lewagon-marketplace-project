@@ -2,7 +2,26 @@ class VideosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @videos = Video.all.reverse_order
+
+    if params[:word] || params[:category] # User performed a search
+      @category = Tag.find(params[:category]) if params[:category] != 'All'
+      @word = params[:word]
+
+      @videos = Video.all
+
+      if @category.present? && @category != 'All'
+
+        @videos = @videos.joins(:video_tags).where(video_tags: { tag: @category})
+      end
+
+      if @word.present?
+        @videos = @videos.where('name LIKE ?', "%#{@word}%")
+      end
+    else
+      @videos = Video.all.reverse_order
+    end
+
+    @categories = Tag.all.order(name: :asc)
   end
 
   def show
