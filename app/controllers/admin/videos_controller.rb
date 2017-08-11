@@ -25,6 +25,7 @@ class Admin::VideosController < ApplicationController
 
   def new
     @video = Video.new
+    @tags = Tag.all
   end
 
   def update
