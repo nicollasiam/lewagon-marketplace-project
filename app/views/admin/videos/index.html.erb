@@ -1,7 +1,7 @@
-<div class="videos">
+<div class="videos-wrapper">
   <div class="container">
     <div class="row">
-      <h1 class="text-center"><%= current_user.email %>`s Videos</h1>
+      <h1 class="text-center"><%= current_user.first_name %>`s Videos</h1>
       <% @videos.each do |video| %>
         <div class="col-xs-4">
           <div class="card-index">
@@ -14,12 +14,12 @@
           </div>
           <div class="text-center col-xs-1  col-xs-offset-3">
             <%= link_to edit_admin_video_path(video) do %>
-              <i class="fa fa-pencil fa-2x"></i>
+              <i class="fa fa-pencil fa-2x letter-purple"></i>
             <% end %>
           </div>
           <div class="text-center col-xs-1 col-xs-offset-3">
             <%= link_to admin_video_path(video), method: 'delete' do %>
-              <i class="fa fa-trash fa-2x"></i>
+              <i class="fa fa-trash fa-2x letter-purple"></i>
             <% end %>
           </div>
         </div>
