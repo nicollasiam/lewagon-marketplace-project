@@ -8,6 +8,7 @@
 
 // Our CSS libraries
 @import "components/index";
+@import "admin/index";
 @import "index";
 
 .flexbox {
@@ -18,4 +19,21 @@
 
 body {
   height: 100%;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.alert {
+  margin-top: 20px;
+  box-shadow: 1px 1px 5px black;
+}
+
+.letter-purple {
+  color: #CF32FF;
+}
+
+.letter-purple:hover {
+  opacity: .7;
 }
