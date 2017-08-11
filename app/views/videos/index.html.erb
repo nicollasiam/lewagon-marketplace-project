@@ -36,7 +36,11 @@
 <div class="videos-wrapper">
   <div class="container">
     <div class="row">
-      <h1 class="text-center">Newest Videos</h1>
+      <% if @category.present? || @word.present? %>
+        <h1 class="text-center">Search Results</h1>
+      <% else %>
+        <h1 class="text-center">Newest Videos</h1>
+      <% end %>
       <% @videos.each do |video| %>
         <div class="col-xs-4">
           <div class="card-index">
