@@ -5,8 +5,7 @@
         <div id="choosenVideos" class="list-group">
           <div class="holder"></div>
           <% @user.cart_videos.each do |cart_video| %>
-          <%# raise %>
-            <div class="list-group-item">
+            <div data-video-id="<%= cart_video.video_id %>" class="list-group-item">
               <div class="col-xs-4">
                 <%= cl_video_tag(cart_video.video.file.file.public_id) %>
               </div>
@@ -16,7 +15,7 @@
               </div>
 
               <div class="col-xs-6 text-right">
-                <%= link_to cart_path(cart_video.video), method: 'delete' do %>
+                <%= link_to cart_path(cart_video.video), method: 'delete', remote: true do %>
                   <i class="fa fa-trash fa-2x"></i>
                 <% end %>
               </div>
