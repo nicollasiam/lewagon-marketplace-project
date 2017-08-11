@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :videos
+    get 'bought', to: 'videos#bought'
   end
 
   resources :carts, only: [:index, :destroy]
