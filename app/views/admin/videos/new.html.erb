@@ -7,7 +7,8 @@
           <%= f.input :name %>
           <%= f.input :location %>
           <%= f.input :price %>
-          <%= f.input :video_tags, collection: @tags, label: 'Category' %>
+          <%#= f.input :video_tags, collection: @tags, label: 'Category' %>
+          <%= f.input :video_tags, as: :check_boxes, collection: @tags, label: 'Categories' %>
           <%= f.input :file %>
           <%= f.input :file_cache, as: :hidden %>
           <%= button_tag(type: 'submit', class: 'btn-rounded btn-purple', style: 'font-size: 1.8em') do %>

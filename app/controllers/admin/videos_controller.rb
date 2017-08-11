@@ -37,6 +37,7 @@ class Admin::VideosController < ApplicationController
   end
 
   def create
+    # raise
     @video = Video.new(video_params)
     movie = FFMPEG::Movie.new(params[:video][:file].tempfile.path)
     @video.width = movie.width
@@ -46,11 +47,15 @@ class Admin::VideosController < ApplicationController
     @video.length = movie.duration
     @video.user = current_user
 
-    new_video_tag = VideoTag.new
-    tag = Tag.find(params[:video][:video_tags])
-    new_video_tag.video = @video
-    new_video_tag.tag = tag
-    new_video_tag.save!
+    # First item is always an empty string
+    tags = params[:video][:video_tags][1..-1]
+
+    tags.each do |tag|
+      new_video_tag = VideoTag.new
+      new_video_tag.video = @video
+      new_video_tag.tag = Tag.find(tag.to_i)
+      new_video_tag.save!
+    end
 
     if @video.save
       redirect_to admin_video_path(@video)
