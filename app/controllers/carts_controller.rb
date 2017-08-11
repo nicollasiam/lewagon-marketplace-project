@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   def index
     @user = current_user
+    @cart = @user.cart
   end
 
   def add
@@ -22,10 +23,22 @@ class CartsController < ApplicationController
   end
 
   def buy
-    # Apenas o metodo foi criado para configurar o e-mail
-    # Falta criar a rota(routes.rb)
-    # E atribuir ela ao botao de compra
-
+    cart = current_user.cart
+    cart.cart_videos.each do |obj|
+      b = BoughtVideo.new
+      b.user = current_user
+      b.video = obj.video
+      b.save
+    end
+    cart.cart_videos.destroy_all
     UserMailer.buy(current_user).deliver_now
+    redirect_to videos_path
+  end
+
+
+  def destroy
+    cart = current_user.cart
+    cart.cart_videos.where(video_id: params[:id]).last.destroy
+    redirect_to carts_path
   end
 end

@@ -15,6 +15,12 @@
                 <%= cart_video.video.name %>
               </div>
 
+              <div class="col-xs-6 text-right">
+                <%= link_to cart_path(cart_video.video), method: 'delete' do %>
+                  <i class="fa fa-trash fa-2x"></i>
+                <% end %>
+              </div>
+
               <div class="col-xs-2 text-right">
                 <%= cart_video.video.price %>
               </div>
@@ -47,6 +53,17 @@
   </div>
 </div>
 
+<div class="text-center">
+  <%= link_to carts_path, method: "patch" do %>
+  <i  style='font-size: 1.8em;vertical-align: middle' class="fa fa-credit-card-alt btn-rounded btn-purple" aria-hidden="true"></i>
+  <% end %>
+</div>
+
+<div class="">
+  <br>
+  <br>
+</div>
+
 
 <%= content_for(:after_js) do %>
   <%= javascript_tag do %>
@@ -63,9 +80,6 @@
                         gohstClass: 'ghost'
                       });
     })
-
-
-
 
     $('#buyVideos').on('DOMNodeInserted', function() {
       // Grab all children prices
@@ -86,17 +100,13 @@
       $('#total-price').text('R$ ' + (total - parseFloat(element.find('.text-right').text().trim())));
     });
 
-
-
     function sumTotalItemsPrice(domElement) {
       var total = 0;
 
       domElement.each(function(_, video) {
         total += parseFloat($(video).find('.text-right').text().trim());
       });
-
       return total;
     }
-
   <% end %>
 <% end %>
