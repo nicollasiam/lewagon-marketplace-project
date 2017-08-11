@@ -37,7 +37,9 @@ class CartsController < ApplicationController
 
 
   def destroy
-    cart = current_user.cart
-    cart.cart_videos.where(video_id: params[:id]).last.destroy
+    @cart = current_user.cart
+    @id = @cart.cart_videos.where(video_id: params[:id]).last.video_id
+    @cart.cart_videos.where(video_id: params[:id]).last.destroy
+
   end
 end
