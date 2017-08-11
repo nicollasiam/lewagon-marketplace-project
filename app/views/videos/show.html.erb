@@ -78,7 +78,7 @@
           <% @tags.each do |tag| %>
             <div class="col-xs-3 text-center">
               <div class="show-tag">
-                <a href="#"><%= tag.name %></a>
+                <a href="/videos?word=&category=<%= tag.id %>"><%= tag.name %></a>
               </div>
             </div>
           <% end %>
