@@ -82,10 +82,10 @@
         </div>
 
         <div class="col-xs-6 text-left">
-          <p><%= @video.frame_rate %></p>
+          <p><%= @video.frame_rate.round(1) %> fps</p>
           <p><%= @video.width %>x<%= @video.height %></p>
           <p><%= @video.enconding %></p>
-          <p><%= @video.length %></p>
+          <p><%= @video.length.round %> s</p>
           <p><%= @video.audio %></p>
         </div>
       </div>
