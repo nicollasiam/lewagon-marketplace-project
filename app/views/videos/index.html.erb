@@ -9,7 +9,7 @@
 
     <div class="row">
       <div class="col-xs-offset-3 col-xs-6">
-        <form action="/videos/search" method="POST">
+        <form action="/videos" method="GET">
           <div class="input-group input-group-lg">
 
             <span id="magnifier-icon" class="input-group-addon" id="sizing-addon1"><i class="fa fa-search"></i></span>
@@ -20,7 +20,7 @@
               <select name="category" class="btn btn-default dropdown-toggle selectpicker" aria-haspopup="true" aria-expanded="false">
                 <option selected>All</option>
                 <% @categories.each_with_index do |category, index| %>
-                  <option value="<%= category.name %>"><%= category.name %></option>
+                  <option value="<%= category.id %>"><%= category.name %></option>
                 <% end %>
               </select>
 
