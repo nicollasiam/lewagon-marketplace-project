@@ -70,3 +70,28 @@ body {
 .banner form {
   padding-top: 100px;
 }
+
+
+.video-tags {
+  padding: 30px 0 100px 0;
+  h2 {
+    margin-bottom: 50px;
+  }
+
+  .show-tag {
+    margin: 30px 0;
+  }
+
+  a {
+    padding: 10px 30px;
+    color: #CF32FF;
+    border-radius: 45%;
+    border-color: #CF32FF;
+    box-shadow: 2px 2px 10px black;
+    text-decoration: none;
+
+    &:hover {
+      box-shadow: 2px 2px 20px black;
+    }
+  }
+}

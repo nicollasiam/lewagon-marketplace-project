@@ -37,13 +37,13 @@
       <div class="col-xs-9">
         <div class="video-details">
           <h2><%= @video.name %></h2>
-          <p><%= ((Time.new - @video.created_at) / 60 / 60 / 24).ceil %> days ago</p>
+          <p><%= ((Time.new - @video.created_at) / 60 / 60 / 24).ceil %> <%= 'day'.pluralize(((Time.new - @video.created_at) / 60 / 60 / 24).ceil) %> ago</p>
           <%= image_tag "#{@video.user.facebook_picture_url}", class: 'avatar' %>
           <span><strong><%= @video.user.first_name %></strong></span>
         </div>
       </div>
 
-      <div class="col-xs-3 text-right">
+      <div class="col-xs-3 text-center">
         <div class="row">
           <div class="col-xs-12">
             <% if !user_signed_in? %>
@@ -66,6 +66,21 @@
           <div class="col-xs-12">
             <h4>R$ <%= @video.price %></h4>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="video-tags">
+          <h2 class="text-center">Categories</h2>
+          <% @tags.each do |tag| %>
+            <div class="col-xs-3 text-center">
+              <div class="show-tag">
+                <a href="/videos?word=&category=<%= tag.id %>"><%= tag.name %></a>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
