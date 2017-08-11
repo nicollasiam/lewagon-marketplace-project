@@ -77,7 +77,9 @@
           <h2 class="text-center">Categories</h2>
           <% @tags.each do |tag| %>
             <div class="col-xs-3 text-center">
-              <a href="#"><%= tag.name %></a>
+              <div class="show-tag">
+                <a href="#"><%= tag.name %></a>
+              </div>
             </div>
           <% end %>
         </div>
