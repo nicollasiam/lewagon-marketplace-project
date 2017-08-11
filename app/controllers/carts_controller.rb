@@ -39,6 +39,5 @@ class CartsController < ApplicationController
   def destroy
     cart = current_user.cart
     cart.cart_videos.where(video_id: params[:id]).last.destroy
-    redirect_to carts_path
   end
 end
