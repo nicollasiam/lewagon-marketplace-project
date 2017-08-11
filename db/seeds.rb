@@ -6,22 +6,36 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-User.create(email: "a@a.com", password: 123456)
+# User.create(email: "a@a.com", password: 123456)
 
-3.times do
-  User.create(email: Faker::Internet.email, password: 123456)
-end
+# 3.times do
+#   User.create(email: Faker::Internet.email, password: 123456)
+# end
 
-user = User.first
+# user = User.first
 
-5.times do
-  a = Video.create!(file: File.open("video.mp4"), user: user)
-end
+# 5.times do
+#   a = Video.create!(file: File.open("video.mp4"), user: user)
+# end
 
-get = User.all
+# get = User.all
 
-all = get[1..-1]
+# all = get[1..-1]
 
-5.times do
-  a = Video.create!(file: File.open("quantum-computer-qubit-technology_n1ri6_eje__PM.mp4"), user: all.sample)
-end
+# 5.times do
+#   a = Video.create!(file: File.open("quantum-computer-qubit-technology_n1ri6_eje__PM.mp4"), user: all.sample)
+# end
+
+Tag.create(name: 'Abstract')
+Tag.create(name: 'Fire')
+Tag.create(name: 'Flowers')
+Tag.create(name: 'City')
+Tag.create(name: 'Energy')
+Tag.create(name: 'Particles')
+Tag.create(name: 'Water')
+Tag.create(name: 'Love')
+Tag.create(name: 'Science')
+Tag.create(name: 'Religion')
+Tag.create(name: 'Technology')
+Tag.create(name: 'Music')
+Tag.create(name: 'Water')

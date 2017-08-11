@@ -3,6 +3,7 @@ class VideosController < ApplicationController
 
   def index
     @videos = Video.all.reverse_order
+    @categories = Tag.all.order(name: :asc)
   end
 
   def show

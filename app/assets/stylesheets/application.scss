@@ -37,3 +37,30 @@ body {
 .letter-purple:hover {
   opacity: .7;
 }
+
+.dropdown-menu {
+  li {
+    a {
+      text-shadow: none;
+    }
+  }
+}
+
+#magnifier-icon {
+  background: white;
+  text-shadow: none;
+  border-right: 0;
+}
+
+#search-box {
+  border-left: 0;
+}
+
+.input-group-lg > .input-group-btn > .btn {
+  border: 0;
+  border-radius: 0;
+}
+
+.banner form {
+  padding-top: 100px;
+}
