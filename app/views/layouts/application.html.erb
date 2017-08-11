@@ -8,12 +8,12 @@
 
   <body>
 
-    <%= load_navbar %>
+    <%= render '/shared/navbar' %>
 
     <% if alert %>
       <div class="container">
         <div class="row">
-          <div class="col-xs-offset-4 col-xs-4">
+          <div class="col-xs-offset-3 col-xs-6">
             <div class="alert alert-danger alert-dismissible text-center" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <%= alert %>
@@ -24,7 +24,7 @@
     <% elsif notice %>
       <div class="container">
         <div class="row">
-          <div class="col-xs-offset-4 col-xs-4">
+          <div class="col-xs-offset-3 col-xs-6">
             <div class="alert alert-success alert-dismissible text-center" role="alert">
               <%= notice %>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
