@@ -49,9 +49,12 @@
             <% if !current_user %>
               <%= render 'form_buy_button' %>
             <% elsif current_user.cart %> <!-- User logged in and has a cart -->
-              <% if @video.user != current_user && !@is_video_in_cart %>
+              <% if @video.user != current_user && !@is_video_in_cart%>
               <!-- Check if video is not owned by the user and it is not in user's cart -->
-                <%= render 'form_buy_button' %>
+                <% if !current_user.bought_videos.where(video_id: @video.id) %>
+                <!-- Check if the user already have bought the video -->
+                  <%= render 'form_buy_button' %>
+                <% end %>
               <% end %>
             <% elsif @video.user != current_user %>
             <!-- User logged in and doesnt have a cart. Check if oser is the video's owner -->
